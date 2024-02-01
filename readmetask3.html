@@ -1,0 +1,77 @@
+<h1
+id="iso-contours-generation-and-critical-point-analysis">Iso-contours
+Generation and Critical Point Analysis</h1>
+<p>This script generates isocontours and analyses the critical points
+from a 2D scalar field dataset using ParaView’s Python scripting and TTK
+(Topological Data Analysis Toolkit) filters.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>ParaView (Version 5.10.1)</li>
+<li>Python (ParaView’s Python interpreter is used)</li>
+<li>Pandas</li>
+<li>VTK</li>
+<li>Topological Data Analysis Toolkit Plugin (TTK)</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ol type="1">
+<li><p>Open a terminal.</p></li>
+<li><p>Run the script with the following command on the
+Dias_Isabela_Tasks directory:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pvpython</span> code.py <span class="op">&lt;</span>csv_file<span class="op">&gt;</span> <span class="op">&lt;</span>isovalue_1<span class="op">&gt;</span> <span class="op">&lt;</span>isovalue_2<span class="op">&gt;</span> <span class="op">&lt;</span>isovalue_3<span class="op">&gt;</span> <span class="op">&lt;</span>output_filename<span class="op">&gt;</span> </span></code></pre></div>
+<p>Note that the pvpython is required to run the script. Then, make sure
+that you are using the correct path. For instance:</p>
+<pre><code> /Applications/ParaView-5.10.1.app/Contents/bin/pvpython Task3.py &#39;2d_scalar_field.csv&#39; 0 1 1.9 &#39;isocontours.png&#39;</code></pre>
+<ol start="3" type="1">
+<li><p>Replace <code>&lt;csv_file&gt;</code>,
+<code>&lt;isovalue_1&gt;</code>,<code>&lt;isovalue_2&gt;</code>,
+<code>&lt;isovalue_3&gt;</code>, and <output_filename> with the
+appropriate values.</p></li>
+<li><p>The script will generate isocontours and analyze critical points.
+Results will be saved as CSV files and an image file.</p></li>
+</ol>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><p><code>&lt;csv_file&gt;</code> : Path to the CSV file containing
+the 2D scalar field data.</p></li>
+<li><p><code>&lt;isovalue_1&gt;</code>, <code>&lt;isovalue_2&gt;</code>,
+<code>&lt;isovalue_3&gt;</code>: Isovalues for generating
+contours.</p></li>
+<li><p><code>&lt;output_filename&gt;</code>: Path to the output png
+file.</p></li>
+</ul>
+<h2 id="output">Output</h2>
+<ul>
+<li>Image file: <code>output_filename.png</code> The generated
+isocontours saved as a png file. ( Dias_Isabela_Tasks folder)</li>
+<li>Output files: <code>scalarfieldcroutput.csv</code> and
+<code>scalarfieldcroutput.vtk</code> containing the outputs of
+ttk::ScalarFieldCriticalPoints Filter and
+<code>scalarfieldcroutputClass.csv</code> file containing the
+classification of the critical points (TTK_Outputs folder)</li>
+</ul>
+<h2 id="script-details">Script Details</h2>
+<p>The script utilizes ParaView’s Python scripting interface to perform
+isocontour generation and critical point analysis. TTK (Topological Data
+Analysis Toolkit) filters are employed for analyzing critical points.
+Critical points are classified into categories such as Local Minimum,
+Local Maximum, Saddle Type 1, Saddle Type 2, Degenerate, Regular, or
+Unknown.</p>
+<h2 id="reference">Reference</h2>
+<ol type="1">
+<li>Quick-Start : A Tutorial.<a
+href="https://kitware.github.io/paraview-docs/latest/python/quick-start.html">Available
+here</a></li>
+<li>ParaView Scripting with Python. <a
+href="https://itk.org/Wiki/images/f/f9/Servermanager2.pdf">Available
+here</a></li>
+<li>Python &amp; Batch: pvpython and pvbatch. <a
+href="https://docs.paraview.org/en/latest/Tutorials/ClassroomTutorials/pythonAndBatchPvpythonAndPvbatch.html#python-batch-pvpython-and-pvbatch">Available
+here</a></li>
+<li>Topology Toolkit. <a
+href="https://topology-tool-kit.github.io/">Available here</a></li>
+<li>Tierny, J. Topological Data Analysis for Scientific Visualization.
+(Springer International Publishing, 2017).
+doi:10.1007/978-3-319-71507-0.</li>
+</ol>

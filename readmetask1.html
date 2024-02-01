@@ -1,0 +1,69 @@
+<h1 id="hydrogen-isosurfaces-with-vtk">Hydrogen Isosurfaces with
+VTK</h1>
+<p>This Python scripts utilizes the Visualization Toolkit (VTK) library
+to visualize isosurfaces extracted from a 3D volume dataset. The dataset
+consists of the probability density for the 3d electron position in a
+hydrogen atom.</p>
+<h2 id="dataset-information">Dataset information</h2>
+<p>The dataset is a structured points dataset stored in a VTK file. This
+type of dataset represents 3D image data where the points are arranged
+in a regular grid. This grid is defined in terms of dimensions
+(64,64,64), origin (0,0,0), spacing (1,1,1).</p>
+<ul>
+<li>File Format: VTK</li>
+<li>Dataset Type: Structured Points</li>
+<li>Dimensions: W,H, D (width, height and depth)</li>
+<li>Scalar values: Probability density</li>
+</ul>
+<h2 id="isosurface-extraction">Isosurface extraction</h2>
+<ul>
+<li>The isosurface extraction is performed using the
+<strong>vtkContourFilter</strong>. In this script we set the initial
+isovalue as 0.03.</li>
+</ul>
+<h2 id="visualization-components">Visualization components</h2>
+<ul>
+<li><p><strong>Outline</strong>: The outline of the dataset is created
+using the <strong>vtkOutlineFilter</strong>. This provides a visual
+representation of the volume boundaries.</p></li>
+<li><p><strong>Isosurfaces</strong>: The isosurface extracted from the
+dataset is visualized using the <strong>vtkPolyDataMapper</strong> and
+<strong>vtkActor</strong>. The color of the isosurface is determined by
+the <strong>vtkColorTransferFunction</strong>, which maps scalar values
+to colors.</p></li>
+<li><p><strong>Scalar Bar</strong>: A scalar bar is added to the
+visualization scene using <strong>vtkScalarBarActor</strong>. This bar
+provides a color reference for the iso-surfaces, indicating the mapping
+between scalar values and colors.</p></li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3</li>
+<li>VTK library</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ol type="1">
+<li>Ensure you have Python installed on your system.</li>
+</ol>
+<p>2.Install the VTK library using the following command:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> pip install vtk</span></code></pre></div>
+<ol start="3" type="1">
+<li>Run the script using Python:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python hydrogen.py</span></code></pre></div>
+<ol start="3" type="1">
+<li>The same result is obtained by using Paraview (pvpython)</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pvpython</span> hydrogen.py</span></code></pre></div>
+<ol start="4" type="1">
+<li>The script will display a 3D visualization window. The animation can
+be reinitialized by double-clicking within the 3D visualization
+window.</li>
+</ol>
+<blockquote>
+<p>[!NOTE] The script is compatible with both Windows and MacOS
+operating systems.</p>
+</blockquote>
